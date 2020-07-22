@@ -45,6 +45,7 @@ const listener = app.listen(3000 || process.env.PORT, () => {
             }
             if (url[x].endTime < Date.now()) {
                 console.log(`Request for leaving meet ${url[x].url}`);
+                obj.end();
                 delete url[x]
             }
         }
