@@ -1,4 +1,4 @@
-<p align="center"><img src="https://i.ytimg.com/vi/yNxPVj0hejg/hqdefault.jpg" align="center" width="150"></p>
+<p align="center"><img src="https://image.flaticon.com/icons/svg/2943/2943133.svg" align="center" width="150"></p>
 
 <h2 align="center">Google Meet Scheduler</h2>
 
@@ -26,6 +26,8 @@ If you want Deploy your instance of app on Heroku
 4. Commit and Push again
 
 this video explains deployment on heroku very well 👉🏻 [YouTube Link](https://www.youtube.com/watch?v=Kl7mqpAK-bk)
+
+Deploying on Heroku has some issue see [#1](https://github.com/AmanRaj1608/Google-Meet-Scheduler/issues/1)
 
 <br>
 <br>
