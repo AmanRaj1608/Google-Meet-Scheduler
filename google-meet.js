@@ -5,9 +5,10 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 puppeteer.use(StealthPlugin())
 
 class GoogleMeet {
-    constructor(email, pass) {
+    constructor(email, pass, head) {
         this.email = email;
         this.pass = pass;
+        this.head = head;
         this.browser;
         this.page;
     }
@@ -15,7 +16,7 @@ class GoogleMeet {
         try {
             // Open browser
             this.browser = await puppeteer.launch({
-                headless: true,
+                headless: this.head,
                 args: [
                     '--no-sandbox',
                     '--disable-setuid-sandbox',

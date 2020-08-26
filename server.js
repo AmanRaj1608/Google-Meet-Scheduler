@@ -11,9 +11,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Values
-let email = process.env.email || "201851015@iiitvadodara.ac.in";
-let password = process.env.pass || "";
-obj = new GoogleMeet(email, password);
+let email = "201851015@iiitvadodara.ac.in";
+let password = "";
+let head = true;
+
+
+obj = new GoogleMeet(email, password, head);
 
 // cache store
 // can be moved to db
@@ -40,8 +43,7 @@ const listener = app.listen(3000 || process.env.PORT, () => {
             if (url[x].startTime < Date.now()) {
                 console.log(`Request for joining meet ${url[x].url}`);
                 obj.schedule(url[x].url);
-                url[i].startTime = url[x].endTime + 2000;
-                // delete url[i];
+                url[x].startTime = url[x].endTime + 2000;
             }
             if (url[x].endTime < Date.now()) {
                 console.log(`Request for leaving meet ${url[x].url}`);
