@@ -46,9 +46,19 @@ class GoogleMeet {
 
             console.log("inside meet page")
             await this.page.waitFor(7000)
-            await this.page.click("div.IYwVEf.HotEze.uB7U9e.nAZzG")
+            try {
+                await this.page.click("div.IYwVEf.HotEze.uB7U9e.nAZzG")
+            } catch (e) {
+                console.log ("\naudio seems to disabled already")
+                console.log (e);
+            }
             await this.page.waitFor(1000)
-            await this.page.click("div.IYwVEf.HotEze.nAZzG")
+            try {
+                await this.page.click("div.IYwVEf.HotEze.nAZzG")
+            } catch (e) {
+                console.log ("\nvideo seems to be disabled already")
+                console.log (e);
+            }
             await this.page.waitFor(1000)
             console.log('clicking on join')
             await this.page.click("span.NPEfkd.RveJvd.snByac")
