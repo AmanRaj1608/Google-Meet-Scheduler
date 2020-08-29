@@ -5,10 +5,11 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 puppeteer.use(StealthPlugin())
 
 class GoogleMeet {
-    constructor(email, pass, head) {
+    constructor(email, pass, head, strict) {
         this.email = email;
         this.pass = pass;
         this.head = head;
+        this.strict = strict;
         this.browser;
         this.page;
     }
@@ -57,8 +58,21 @@ class GoogleMeet {
                 await this.page.click("div.IYwVEf.HotEze.nAZzG")
             } catch (e) {
                 console.log ("\nvideo seems to be disabled already")
-                console.log (e);
+                console.log (e)
             }
+
+            // sanity check (connect only if both audio and video are muted) :P
+            if (this.strict) {
+                let audio = await this.page.evaluate('document.querySelectorAll("div.sUZ4id")[0].children[0].getAttribute("data-is-muted")')
+                let video = await this.page.evaluate('document.querySelectorAll("div.sUZ4id")[1].children[0].getAttribute("data-is-muted")')
+
+                if (audio === "false" || video === "false") {
+                    console.log ("Not joining meeting. We couldn't disable either audio or video from the device.\nYou may try again.")
+                    return
+                }
+                console.log ("all set!!")
+            }
+
             await this.page.waitFor(1000)
             console.log('clicking on join')
             await this.page.click("span.NPEfkd.RveJvd.snByac")
