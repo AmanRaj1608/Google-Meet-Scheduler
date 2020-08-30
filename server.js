@@ -14,9 +14,9 @@ app.set('view engine', 'ejs');
 let email = "201851015@iiitvadodara.ac.in";
 let password = "";
 let head = true;
+let strict = true;
 
-
-obj = new GoogleMeet(email, password, head);
+obj = new GoogleMeet(email, password, head, strict);
 
 // cache store
 // can be moved to db
