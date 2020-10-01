@@ -24,7 +24,7 @@ let url = {};
 let ind = 0;
 
 app.get('/', (req, res) => {
-    res.render('index', { url })
+    res.render('index', { url, email, password })
 });
 app.post('/postlink', (req, res) => {
     ind++;
