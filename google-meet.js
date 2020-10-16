@@ -36,7 +36,7 @@ class GoogleMeet {
 
             await this.page.waitFor(7000)
 
-            await this.page.type("input.whsOnd.zHQkBf", this.pass, {
+            await this.page.type("input[name=password]", this.pass, {
                 delay: 0
             })
             await this.page.click("div#passwordNext")
