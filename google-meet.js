@@ -34,26 +34,26 @@ class GoogleMeet {
             })
             await this.page.click("div#identifierNext")
 
-            await this.page.waitFor(7000)
+            await this.page.waitForTimeout(7000)
 
             await this.page.type("input[name=password]", this.pass, {
                 delay: 0
             })
             await this.page.click("div#passwordNext")
 
-            await this.page.waitFor(5000)
+            await this.page.waitForTimeout(5000)
 
             await this.page.goto(url)
 
             console.log("inside meet page")
-            await this.page.waitFor(7000)
+            await this.page.waitForTimeout(7000)
             try {
                 await this.page.click("div.IYwVEf.HotEze.uB7U9e.nAZzG")
             } catch (e) {
                 console.log ("\naudio seems to disabled already")
                 console.log (e);
             }
-            await this.page.waitFor(1000)
+            await this.page.waitForTimeout(1000)
             try {
                 await this.page.click("div.IYwVEf.HotEze.nAZzG")
             } catch (e) {
@@ -73,7 +73,7 @@ class GoogleMeet {
                 console.log ("all set!!")
             }
 
-            await this.page.waitFor(1000)
+            await this.page.waitForTimeout(1000)
             console.log('clicking on join')
             await this.page.click("span.NPEfkd.RveJvd.snByac")
 
