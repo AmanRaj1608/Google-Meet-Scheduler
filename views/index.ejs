@@ -23,6 +23,11 @@
     </nav>
     <div class="container" style="text-align: center; max-width: 500px;">
         <h1 class="display-4" style="font-size: 40px;">Schedule Google Meet</h1>
+        <div>
+            <% if(password == "" || email == "") { %>
+               <p style=" color : red"> Password or email not set in <mark>server.js</mark> file. </p>
+            <% } %>
+        </div>
         <br>
         <form style="width: 100%;" method="POST" action="/postlink" enctype="application/x-www-form-urlencoded">
             <div class="form-group">
