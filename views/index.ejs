@@ -10,32 +10,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Google Meet Scheduler</title><!DOCTYPE html>
-<html lang="">
-
-<head>
-	<meta charset="utf-8">
-	<title>Example Title</title>
-	<meta name="author" content="Your Name">
-	<meta name="description" content="Example description">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="">
-	<link rel="icon" type="image/x-icon" href=""/>
+    <title>Google Meet Scheduler</title>
 </head>
 
 <body>
-	<header></header>
-	<main></main>
-	<footer></footer>
-	<script type="text/javascript" src=""></script>
-</body>
-
-</html>
-</head>
-<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">
+            <img src="https://i.ytimg.com/vi/yNxPVj0hejg/hqdefault.jpg" width="60" height="40"
+                class="d-inline-block align-top" alt="">
+            Google Meet Scheduler
+        </a>
+    </nav>
     <div class="container" style="text-align: center; max-width: 500px;">
         <h1 class="display-4" style="font-size: 40px;">Schedule Google Meet</h1>
-          <div>
+        <div>
             <% if(password == "" || email == "") { %>
                <p style=" color : red"> Password or email not set in <mark>server.js</mark> file. </p>
             <% } %>
@@ -46,16 +34,6 @@
                 <label for="url">Meet Url</label>
                 <input name="url" type="text" class="form-control" id="url"
                     placeholder="https://meet.google.com/kgh-hwtg-vus" required>
-            </div>
-            <div class="form-group">
-                <label for="attendance_message">Attendance Message</label>
-                <input name="attendance_message" type="text" class="form-control" id="attendance_message"
-                    placeholder="Write your Attendance Message here (optional)">
-            </div>
-            <div class="form-group">
-                <label for="goodbye_message">Goodbye Message</label>
-                <input name="goodbye_message" type="text" class="form-control" id="goodbye_message"
-                    placeholder="Write your Goodbye Message here (optional)">
             </div>
             <div class="form-group">
                 <label for="startDate">Class Start Time</label>

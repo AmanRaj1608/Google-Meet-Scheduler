@@ -13,21 +13,14 @@ class GoogleMeet {
         this.browser;
         this.page;
     }
-    async schedule(url, attendance_message) {
+    async schedule(url) {
         try {
             // Open browser
             this.browser = await puppeteer.launch({
                 headless: this.head,
                 args: [
                     '--no-sandbox',
-                    '--disable-gpu',
                     '--disable-setuid-sandbox',
-                    '--disable-gpu-rasterization',
-                    '--disable-zero-copy',
-                    '--disable-zero-copy-dxgi-video',
-                    '--disable-accelerated-2d-canvas',
-                    '--disable-accelerated-video-encode',
-                    '--disable-accelerated-video-decode',
                     '--use-fake-ui-for-media-stream',
                     '--disable-audio-output'
                 ],
@@ -36,14 +29,13 @@ class GoogleMeet {
             await this.page.goto('https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin')
 
             // Login Start
-            console.log("Writing Email....")
             await this.page.type("input#identifierId", this.email, {
                 delay: 0
             })
             await this.page.click("div#identifierNext")
 
             await this.page.waitForTimeout(7000)
-            console.log("Writing password....")
+
             await this.page.type("input[name=password]", this.pass, {
                 delay: 0
             })
@@ -53,7 +45,7 @@ class GoogleMeet {
 
             await this.page.goto(url)
 
-            console.log("Inside meet page")
+            console.log("inside meet page")
             await this.page.waitForTimeout(7000)
             try {
                 await this.page.click("div.IYwVEf.HotEze.uB7U9e.nAZzG")
@@ -81,67 +73,18 @@ class GoogleMeet {
                 console.log ("all set!!")
             }
 
-            await this.page.waitForTimeout(1500)
+            await this.page.waitForTimeout(1000)
             console.log('clicking on join')
-            await this.page.click("span.NPEfkd.RveJvd.snByac", {delay: 0})
+            await this.page.click("span.NPEfkd.RveJvd.snByac")
 
             console.log("Successfully joined/Sent join request")
-            console.log("\nLoading meet call....")
-            
-            // turning on audio only mode
-            console.log("\nTurning on audio only mode")
-            await this.page.waitForTimeout(4500)
-            await this.page.keyboard.press('Tab', {delay: 100})
-            await this.page.keyboard.press('Tab')
-            await this.page.keyboard.press('Tab')
-            await this.page.keyboard.press('Enter')
-            await this.page.click("div.M5zXed")
-            await this.page.keyboard.press('Tab', {delay: 100})
-            await this.page.keyboard.press('ArrowUp', {delay: 500})
-            await this.page.keyboard.press('ArrowUp', {delay: 500})
-            await this.page.keyboard.press('Enter')
-            await this.page.waitForTimeout(1500)
-            await this.page.keyboard.press('Tab', {delay: 500})
-            await this.page.keyboard.press('Tab', {delay: 500})
-            
-            await this.page.keyboard.press('Enter')
-            await this.page.keyboard.press('Tab', {delay: 150})
-            await this.page.keyboard.press('Tab', {delay: 150})
-            await this.page.keyboard.press('Tab', {delay: 150})
-            await this.page.keyboard.press('Tab', {delay: 150})
-            await this.page.keyboard.press('Enter', {delay: 150})
-            
-            await this.page.keyboard.press('ArrowDown', {delay: 100})
-            await this.page.keyboard.press('ArrowDown', {delay: 100})
-            await this.page.waitForTimeout(500)
-            await this.page.keyboard.press('Enter', {delay: 100})
-            await this.page.waitForTimeout(750)
-            await this.page.keyboard.press('Tab', {delay: 100})
-            await this.page.keyboard.press('Enter')
-            console.log("\nAudio only mode activated")
-            
-            console.log("\nWritting Attendance Message...")
-            await this.page.waitForTimeout(750)
-            await this.page.click("span.DPvwYc.sm8sCf.KdraA")
-            await this.page.focus("textarea.KHxj8b.tL9Q4c")
-            await this.page.keyboard.type(attendance_message, {delay: 0})
-            await this.page.waitForTimeout(500)
-            await this.page.click("span.DPvwYc.e3AdI")
-            console.log("\nMessage sent!")
         }
         catch(err) {
             console.log(err)
         }
     }
 
-    async end(goodbye_message) {
-        console.log("\nSaying Goodbye...")
-        await this.page.keyboard.type(goodbye_message, {delay: 0})
-        await this.page.waitForTimeout(500)
-        await this.page.click("span.DPvwYc.e3AdI")
-        console.log("\nGot it, all done! :)")
-        
-        await this.page.waitForTimeout(1500)
+    async end() {
         await this.browser.close();
     }
 }
