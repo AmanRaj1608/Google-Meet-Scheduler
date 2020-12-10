@@ -110,6 +110,5 @@ class GoogleMeet {
         await this.browser.close();
     }
 }
-
 module.exports = GoogleMeet;
 
