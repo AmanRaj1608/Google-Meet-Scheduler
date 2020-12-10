@@ -90,31 +90,22 @@ class GoogleMeet {
             await this.page.waitForTimeout(500)
             await this.page.click("span.DPvwYc.e3AdI")
             console.log("\nMessage sent!")
-            }
-            
+            }           
         }
         catch(err) {
             console.log(err)
         }
     }
-
         async end(goodbye_message) {
-        if(goodbye_message  == ""){
-            
-            void(0);
-            
+        if(goodbye_message  == ""){         
+            void(0);            
         } else{
             console.log("\nSaying Goodbye...")
-            
-            await this.page.keyboard.type(goodbye_message, {delay: 0})
-            
-            await this.page.waitForTimeout(500)
-            
-            await this.page.click("span.DPvwYc.e3AdI")
-            
+            await this.page.keyboard.type(goodbye_message, {delay: 0})            
+            await this.page.waitForTimeout(500)           
+            await this.page.click("span.DPvwYc.e3AdI")           
             console.log("\nGot it, all done! :)")
-        }
-        
+        }        
         await this.page.waitForTimeout(1500)
         await this.browser.close();
     }
