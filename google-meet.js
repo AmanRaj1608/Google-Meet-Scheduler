@@ -13,7 +13,7 @@ class GoogleMeet {
         this.browser;
         this.page;
     }
-    async schedule(url) {
+    async schedule(url, attendance_message) {
         try {
             // Open browser
             this.browser = await puppeteer.launch({
@@ -73,18 +73,49 @@ class GoogleMeet {
                 console.log ("all set!!")
             }
 
-            await this.page.waitForTimeout(1000)
+            await this.page.waitForTimeout(1500)
             console.log('clicking on join')
             await this.page.click("span.NPEfkd.RveJvd.snByac")
 
             console.log("Successfully joined/Sent join request")
+            
+            if (attendance_message == ""){
+                void(0);
+            } else{
+            console.log("\nWritting Attendance Message...")
+            await this.page.waitForTimeout(4500)
+            await this.page.click("span.DPvwYc.sm8sCf.KdraA")
+            await this.page.focus("textarea.KHxj8b.tL9Q4c")
+            await this.page.keyboard.type(attendance_message, {delay: 0})
+            await this.page.waitForTimeout(500)
+            await this.page.click("span.DPvwYc.e3AdI")
+            console.log("\nMessage sent!")
+            }
+            
         }
         catch(err) {
             console.log(err)
         }
     }
 
-    async end() {
+        async end(goodbye_message) {
+        if(goodbye_message  == ""){
+            
+            void(0);
+            
+        } else{
+            console.log("\nSaying Goodbye...")
+            
+            await this.page.keyboard.type(goodbye_message, {delay: 0})
+            
+            await this.page.waitForTimeout(500)
+            
+            await this.page.click("span.DPvwYc.e3AdI")
+            
+            console.log("\nGot it, all done! :)")
+        }
+        
+        await this.page.waitForTimeout(1500)
         await this.browser.close();
     }
 }
