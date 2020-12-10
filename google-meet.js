@@ -13,7 +13,7 @@ class GoogleMeet {
         this.browser;
         this.page;
     }
-    async schedule(url, attendance_message) {
+    async schedule(url) {
         try {
             // Open browser
             this.browser = await puppeteer.launch({
