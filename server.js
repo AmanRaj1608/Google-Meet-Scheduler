@@ -11,9 +11,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Values
-let email = "juan.montes.alumno@ibipanama.edu.pa";
-let password = "oibas rop odamot se oicen le atsah 12";
-let head = false;
+let email = "201851015@iiitvadodara.ac.in";
+let password = "";
+let head = true;
 let strict = true;
 
 obj = new GoogleMeet(email, password, head, strict);
