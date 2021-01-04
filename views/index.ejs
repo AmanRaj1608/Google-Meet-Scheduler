@@ -24,8 +24,8 @@
     <div class="container" style="text-align: center; max-width: 500px;">
         <h1 class="display-4" style="font-size: 40px;">Schedule Google Meet</h1>
         <div>
-            <% if(password == "" || email == "") { %>
-               <p style=" color : red"> Password or email not set in <mark>server.js</mark> file. </p>
+            <% if(!password || 0 === password.length || !email || 0 === email.length) { %>
+            <p style=" color : red"> Password or Email not set as environment variables or in <mark>.env</mark> file. Refer <a href=https://github.com/AmanRaj1608/Google-Meet-Scheduler#readme>here</a> for instructions.</p>
             <% } %>
         </div>
         <br>
