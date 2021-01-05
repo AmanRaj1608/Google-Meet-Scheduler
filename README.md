@@ -8,7 +8,7 @@
 1. Open terminal on your PC
 2. Clone the repo `git clone https://github.com/AmanRaj1608/Google-Meet-Scheduler.git`
 3. Go inside the project directory
-4. Go to `server.js` file and on `line 14 and 15` and add your email and password there
+4. Rename `.env-example` file to `.env` and replace your email and password there
 5. Install dependencies `npm install`
 6. Start the application `npm start`
 

@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -11,8 +12,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Values
-let email = "201851015@iiitvadodara.ac.in";
-let password = "";
+let email = process.env.EMAIL;
+let password = process.env.PASSWORD;
+
 let head = true;
 let strict = true;
 
