@@ -1,0 +1,28 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "23:30"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: puppeteer-extra-plugin-stealth
+    versions:
+    - 2.6.7
+    - 2.7.3
+    - 2.7.4
+    - 2.7.5
+    - 2.7.6
+  - dependency-name: puppeteer
+    versions:
+    - 6.0.0
+    - 7.0.0
+    - 7.0.1
+    - 7.0.4
+    - 7.1.0
+    - 8.0.0
+  - dependency-name: puppeteer-extra
+    versions:
+    - 3.1.16
+    - 3.1.17
